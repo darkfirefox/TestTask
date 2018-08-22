@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TestTask"
+             x:Class="TestTask.MainPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text ="History"  
+                     Priority="0" 
+                     Order="Primary" 
+                     Clicked="OnTbiClicked"/>
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <StackLayout Orientation="Vertical" HorizontalOptions="Start">
+                <Label Text="from" TextColor="Black"/>
+                <Picker x:Name="pickerFrom" 
+                VerticalOptions="CenterAndExpand"
+                SelectedIndexChanged="OnPickerFromSelectIndexChanged"
+                SelectedIndex="0">
+                    <Picker.Items>
+                        <x:String>English</x:String>
+                        <x:String>Franch</x:String>
+                        <x:String>German</x:String>
+                        <x:String>Italian</x:String>
+                        <x:String>Russian</x:String>
+                    </Picker.Items>
+                </Picker>
+            </StackLayout>
+
+            <Button Text="Swap langs" 
+                    BackgroundColor="#00ace6"
+                    TextColor="White"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    Clicked="OnBtnSwapClicked"/>
+
+            <StackLayout Orientation="Vertical" HorizontalOptions="End">
+                <Label Text="to" TextColor="Black"/>
+                <Picker x:Name="pickerTo"
+                VerticalOptions="CenterAndExpand"
+                SelectedIndexChanged="OnPickerToSelectIndexChanged">
+                    <Picker.Items>
+                        <x:String>English</x:String>
+                        <x:String>Franch</x:String>
+                        <x:String>German</x:String>
+                        <x:String>Italian</x:String>
+                        <x:String>Russian</x:String>
+                    </Picker.Items>
+                </Picker>
+            </StackLayout>
+            
+        </StackLayout>
+        <Entry x:Name="fromEn"
+               Keyboard="Text"
+               VerticalOptions="Start"
+               HorizontalOptions="Fill"
+               Placeholder="Enter text..."
+               />
+        <Editor x:Name="toEd"    
+               VerticalOptions="Start"
+               HorizontalOptions="Fill"
+               BackgroundColor="#00ace6"
+               TextColor="White"
+               InputTransparent="True"
+                />
+        <Button Text="Translate"
+                VerticalOptions="Start"
+                HorizontalOptions="Center"
+                BackgroundColor="#00ace6"
+                TextColor="White"
+                Clicked="OnBtnTrnsltClicked"/>
+    </StackLayout>
+
+</ContentPage>
